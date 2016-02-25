@@ -1,0 +1,18 @@
+# Server Keys
+aws_keypair_name: keypair-name-2015
+aws_private_key: ~/.ssh/aws-keypair-private-key.pem
+
+#Deploy Keyfile
+github_deploy_key: deploy_key
+github_local_deploy_key: ~/.ssh/{{ github_deploy_key }}
+
+vpc_name: my-vpc-name
+domain: example.com
+github_repo: github_username
+safe_cidr: "65.200.54.234/32"
+
+# Region
+aws_region: us-west-2
+aws_zone: "{{ aws_region }}a"
+aws_zone_alt: "{{ aws_region }}b"
+

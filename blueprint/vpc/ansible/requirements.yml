@@ -1,0 +1,14 @@
+
+- src: https://github.com/gotansible/basics
+  name: gotansible.basics
+
+- src: https://github.com/gotansible/terraform
+  name: gotansible.terraform
+
+- src: https://github.com/gotansible/gobuild
+  name: gotansible.gobuild
+
+- src: https://github.com/kraveio/ansible-provision
+  name: kraveio.provision
+
+
