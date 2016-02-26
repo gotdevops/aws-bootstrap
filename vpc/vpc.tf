@@ -15,7 +15,7 @@ variable "state_bucket" {}
 variable "jump_access_cidr" {}
 
 module "genesis" {
-	source = "git::ssh://git@github.com/kraveio/aws-bootstrap//blueprint/vpc?ref=master"
+	source = "git::ssh://git@github.com/gotdevops/aws-bootstrap//terraform-vpc?ref=master"
 
 	aws_access_key = "${var.aws_access_key}"
 	aws_secret_key = "${var.aws_secret_key}"

@@ -1,0 +1,25 @@
+---
+- hosts: all
+  gather_facts: no
+  vars_files:
+    - credentials.yml
+    - settings.yml
+
+  roles:
+    - role: gotansible.aws-bootstrap
+      aws_bootstrap_terraform_file: vpc.tf
+      aws_bootstrap_vpc_name: "{{ vpc_name }}"
+      aws_bootstrap_state_bucket: state.provision.{{ domain }}
+      aws_bootstrap_jump_access_cidr: "{{ safe_cidr }}"
+      aws_bootstrap_state_file: genesis.tfstate
+
+      aws_bootstrap_playbook_repo: "ssh://git@github.com/{{github_repo}}/ansible-playbook"
+      aws_bootstrap_playbook_repo_version: master
+      aws_bootstrap_playbook_repo_keyfile: "{{ github_deploy_key }}"
+      aws_bootstrap_terraform_repo: "ssh://git@github.com/{{github_repo}}/aws-site"
+      aws_bootstrap_terraform_repo_version: master
+      aws_bootstrap_terraform_repo_keyfile: "{{ github_deploy_key }}"
+      aws_bootstrap_keys:
+        - "{{ github_local_deploy_key }}"
+        - "{{ aws_private_key }}"
+

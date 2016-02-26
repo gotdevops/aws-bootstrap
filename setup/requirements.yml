@@ -1,0 +1,3 @@
+
+- src: https://github.com/gotansible/aws-bootstrap
+  name: gotansible.aws-bootstrap

@@ -1,8 +1,0 @@
-terraform.tfvars
-**/roles/**
-**/.roles/**
-**/terraform.tfvars
-**/provision/**
-**/bootstrap
-**/.bootstrap
-**/destroy
