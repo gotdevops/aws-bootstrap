@@ -5,8 +5,8 @@ ROOT=`pwd`
 cd setup
 
 ansible-galaxy install -r requirements.yml --force
+ansible-playbook setup.yml -i "localhost," -c local
 
 #ansible-playbook setup.yml -i "localhost," -c local --ask-vault-pass -e "aws_bootstrap_terraform_file=$ROOT/vpc/vpc.tf"
-#ansible-playbook setup.yml -i "localhost," -c local -e "aws_bootstrap_terraform_file=$ROOT/vpc/vpc.tf"
 
-ansible-playbook setup.yml -i "localhost," -c local
+
