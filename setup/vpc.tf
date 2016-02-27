@@ -14,8 +14,12 @@ variable "vpc_zone_alt" {}
 variable "state_bucket" {}
 variable "jump_access_cidr" {}
 
+variable "genesis_source" {
+	default = "git::ssh://git@github.com/gotdevops/aws-bootstrap//terraform-vpc?ref=master"
+}
+
 module "genesis" {
-	source = "git::ssh://git@github.com/gotdevops/aws-bootstrap//terraform-vpc?ref=master"
+	source = "${var.genesis_source}"
 
 	aws_access_key = "${var.aws_access_key}"
 	aws_secret_key = "${var.aws_secret_key}"

@@ -1,18 +1,40 @@
-# Server Keys
-aws_keypair_name: keypair-name-2015
-aws_private_key: ~/.ssh/aws-keypair-private-key.pem
 
-#Deploy Keyfile
-github_deploy_key: deploy_key
-github_local_deploy_key: ~/.ssh/{{ github_deploy_key }}
+aws_bootstrap_genesis_source: "git::ssh://git@github.com/gotdevops/aws-bootstrap//terraform-vpc?ref=master"
+aws_bootstrap_vpc_name: my-vpc-name
+aws_bootstrap_jump_access_cidr: "65.200.54.234/32"
 
-vpc_name: my-vpc-name
-domain: example.com
-github_repo: github_username
-safe_cidr: "65.200.54.234/32"
+aws_bootstrap_state_bucket: terraform.qa.example.com
+aws_bootstrap_state_file: genesis.tfstate
 
+# Which Account 
+aws_bootstrap_aws_account_id: ""
 # Region
-aws_region: us-west-2
-aws_zone: "{{ aws_region }}a"
-aws_zone_alt: "{{ aws_region }}b"
+aws_bootstrap_aws_region: us-west-2
+aws_bootstrap_aws_zone: "{{ aws_bootstrap_aws_region }}a"
+aws_bootstrap_aws_zone_alt: "{{ aws_bootstrap_aws_region }}b"
+
+# Server Keys
+aws_bootstrap_aws_keypair_name: keypair-name-2015
+aws_bootstrap_aws_private_key: ~/.ssh/aws-keypair-private-key.pem
+
+#Git Repositories 
+# remove following 3 lines
+github_provision_keyfile: deploy_key
+github_provision_keyfile_localpath: ~/.ssh/{{ github_provision_keyfile }}
+github_repo: github_username
+# end remove
+
+aws_bootstrap_playbook_repo: "ssh://git@github.com/{{ github_repo }}/ansible-playbook"
+aws_bootstrap_playbook_repo_version: master
+aws_bootstrap_playbook_repo_keyfile: "{{ github_provision_keyfile }}"
+
+aws_bootstrap_terraform_repo: "ssh://git@github.com/{{ github_repo }}/aws-site"
+aws_bootstrap_terraform_repo_version: master
+aws_bootstrap_terraform_repo_keyfile: "{{ github_provision_keyfile }}"
+
+# Keys
+aws_bootstrap_keys:
+  - "{{ github_provision_keyfile_localpath }}"
+  - "{{ aws_bootstrap_aws_private_key }}"
+
 
