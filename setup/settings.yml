@@ -7,7 +7,8 @@ aws_bootstrap_state_bucket: terraform.qa.example.com
 aws_bootstrap_state_file: genesis.tfstate
 
 # Which Account 
-aws_bootstrap_aws_account_id: ""
+aws_bootstrap_aws_account_id: "AWS_ACCOUNT_ID"
+
 # Region
 aws_bootstrap_aws_region: us-west-2
 aws_bootstrap_aws_zone: "{{ aws_bootstrap_aws_region }}a"
