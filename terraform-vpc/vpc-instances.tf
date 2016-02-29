@@ -33,15 +33,17 @@ resource "aws_instance" "nat" {
 	}
 
 	# create tunnel 
-	provisioner "local-exec" {
-		command = "ssh -i ${var.aws_private_key} -f -L 10250:${self.private_ip}:22 ec2-user@${aws_eip.jump.public_ip} -o StrictHostKeyChecking=no sleep ${var.ssh_wait_seconds} <&- >&- 2>&- &"
-	}
+	#provisioner "local-exec" {
+	#	command = "ssh -i ${var.aws_private_key} -f -L 10250:${self.private_ip}:22 ec2-user@${aws_eip.jump.public_ip} -o StrictHostKeyChecking=no sleep ${var.ssh_wait_seconds} <&- >&- 2>&- &"
+	#}
 
 	connection {
+		private_key = "${var.aws_private_key}"
 		user = "ec2-user"
-		key_file = "${var.aws_private_key}"
-		port = 10250
-		host = "127.0.0.1"
+		host = "${self.private_ip}"
+		bastion_user = "ec2-user"
+		bastion_host = "${aws_eip.jump.public_ip}"
+		agent = false
 	}
 
 	#this is here because it is more resilent for the initial connect
@@ -55,13 +57,11 @@ resource "aws_instance" "nat" {
 		command = "${path.module}/ansible/nat/run-play ${var.aws_private_key}"
 	}
 
-	# something has to go here before doing ansible, to repeat until the server is online
 	provisioner "remote-exec" {
 		inline = [
 			"sudo yum update -y"
 		]
 	}
-
 }
 
 resource "aws_instance" "provision" {
@@ -99,7 +99,8 @@ resource "aws_instance" "provision" {
 
 	connection {
 		user = "ubuntu"
-		key_file = "${var.aws_private_key}"
+		private_key = "${var.aws_private_key}"
+		agent = false
 		port = 12987
 		host = "127.0.0.1"
 	}
@@ -150,7 +151,7 @@ resource "aws_instance" "jump" {
 
 	connection {
 		user = "ec2-user"
-		key_file = "${var.aws_private_key}"
+		private_key = "${var.aws_private_key}"
 	}
 
 	provisioner "local-exec" {
