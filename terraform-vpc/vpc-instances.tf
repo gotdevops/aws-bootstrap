@@ -39,10 +39,11 @@ resource "aws_instance" "nat" {
 
 	connection {
 		type = "ssh"
-		private_key = "${var.aws_private_key}"
+		private_key = "~/.ssh/current"
 		user = "ec2-user"
 		bastion_user = "ec2-user"
 		bastion_host = "${aws_eip.jump.public_ip}"
+		bastion_private_key = "${var.aws_private_key}"
 		agent = false
 	}
 
