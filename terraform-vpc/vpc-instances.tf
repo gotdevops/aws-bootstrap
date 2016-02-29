@@ -44,6 +44,10 @@ resource "aws_instance" "nat" {
 		host = "127.0.0.1"
 	}
 
+	provisioner "local-exec" {
+		command = "${path.module}/ansible/nat/run-play ${var.aws_private_key}"
+	}
+
 	# something has to go here before doing ansible, to repeat until the server is online
 	provisioner "remote-exec" {
 		inline = [
@@ -51,9 +55,6 @@ resource "aws_instance" "nat" {
 		]
 	}
 
-	provisioner "local-exec" {
-		command = "${path.module}/ansible/nat/run-play ${var.aws_private_key}"
-	}
 }
 
 resource "aws_instance" "provision" {
@@ -167,8 +168,7 @@ resource "aws_instance" "jump" {
 
 	provisioner "remote-exec" {
 		inline = [
-			"chmod 600 ~/.ssh/current",
-			"sudo yum update -y"
+			"chmod 600 ~/.ssh/current"
 		]
 	}
 
@@ -185,7 +185,6 @@ resource "aws_instance" "jump" {
 			"echo connected"
 		]
 	}
-
 }
 
 
