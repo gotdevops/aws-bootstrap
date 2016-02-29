@@ -38,6 +38,7 @@ resource "aws_instance" "nat" {
 	#}
 
 	connection {
+		type = "ssh"
 		private_key = "${var.aws_private_key}"
 		user = "ec2-user"
 		host = "${self.private_ip}"
@@ -98,6 +99,7 @@ resource "aws_instance" "provision" {
 	}
 
 	connection {
+		type = "ssh"
 		user = "ubuntu"
 		private_key = "${var.aws_private_key}"
 		agent = false
@@ -150,6 +152,7 @@ resource "aws_instance" "jump" {
 	}
 
 	connection {
+		type = "ssh"
 		user = "ec2-user"
 		private_key = "${var.aws_private_key}"
 	}
