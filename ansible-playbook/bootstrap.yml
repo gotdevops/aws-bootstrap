@@ -3,7 +3,7 @@
   gather_facts: no
   vars_files:
     - credentials.yml
-    - settings.yml
+    - ../settings.yml
 
   roles:
     - role: gotansible.aws-bootstrap
