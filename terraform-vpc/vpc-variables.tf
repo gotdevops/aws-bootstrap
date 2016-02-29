@@ -38,7 +38,7 @@ variable "jump_access_cidr" {
 }
 
 variable "sleep_seconds" {
-	default = "90"
+	default = "120"
 }
 
 variable "ssh_wait_seconds" {

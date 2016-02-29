@@ -44,6 +44,13 @@ resource "aws_instance" "nat" {
 		host = "127.0.0.1"
 	}
 
+	#this is here because it is more resilent for the initial connect
+	provisioner "remote-exec" {
+		inline = [
+			"echo connected"
+		]
+	}
+
 	provisioner "local-exec" {
 		command = "${path.module}/ansible/nat/run-play ${var.aws_private_key}"
 	}
@@ -185,6 +192,13 @@ resource "aws_instance" "jump" {
 			"echo connected"
 		]
 	}
+
+	provisioner "remote-exec" {
+		inline = [
+			"sudo yum update -y"
+		]
+	}
+
 }
 
 
