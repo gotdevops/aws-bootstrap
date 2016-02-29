@@ -8,7 +8,7 @@
 - src: https://github.com/gotansible/gobuild
   name: gotansible.gobuild
 
-- src: https://github.com/kraveio/ansible-provision
-  name: kraveio.provision
+- src: https://github.com/gotansible/aws-provision
+  name: gotansbile.aws-provision
 
 
