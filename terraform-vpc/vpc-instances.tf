@@ -33,18 +33,17 @@ resource "aws_instance" "nat" {
 	}
 
 	# create tunnel 
-	#provisioner "local-exec" {
-	#	command = "ssh -i ${var.aws_private_key} -f -L 10250:${self.private_ip}:22 ec2-user@${aws_eip.jump.public_ip} -o StrictHostKeyChecking=no sleep ${var.ssh_wait_seconds} <&- >&- 2>&- &"
-	#}
+	provisioner "local-exec" {
+		command = "ssh -i ${var.aws_private_key} -f -L 12986:${self.private_ip}:22 ec2-user@${aws_eip.jump.public_ip} -o StrictHostKeyChecking=no sleep ${var.ssh_wait_seconds} <&- >&- 2>&- &"
+	}
 
 	connection {
 		type = "ssh"
-		private_key = "${var.aws_private_key}"
 		user = "ec2-user"
-		bastion_user = "ec2-user"
-		bastion_host = "${aws_eip.jump.public_ip}"
-		bastion_private_key = "${var.aws_private_key}"
+		private_key = "${var.aws_private_key}"
 		agent = false
+		port = 12986
+		host = "127.0.0.1"
 	}
 
 	#this is here because it is more resilent for the initial connect
