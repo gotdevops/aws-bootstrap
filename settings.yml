@@ -1,18 +1,22 @@
 
 aws_bootstrap_genesis_source: "git::ssh://git@github.com/gotdevops/aws-bootstrap//terraform-vpc?ref=master"
-aws_bootstrap_vpc_name: my-vpc-name
-aws_bootstrap_jump_access_cidr: "65.200.54.234/32"
-
-aws_bootstrap_state_bucket: terraform.qa.example.com
-aws_bootstrap_state_file: genesis.tfstate
 
 # Which Account 
 aws_bootstrap_aws_account_id: "AWS_ACCOUNT_ID"
+
+# VPC
+aws_bootstrap_vpc_name: my-vpc-name
+aws_bootstrap_vpc_cidr_block: "10.0.0.0/16"
+aws_bootstrap_jump_access_cidr: "65.200.54.234/32"
 
 # Region
 aws_bootstrap_aws_region: us-west-2
 aws_bootstrap_aws_zone: "{{ aws_bootstrap_aws_region }}a"
 aws_bootstrap_aws_zone_alt: "{{ aws_bootstrap_aws_region }}b"
+
+# Terraform State s3
+aws_bootstrap_state_bucket: terraform.qa.example.com
+aws_bootstrap_state_file: genesis.tfstate
 
 # Server Keys
 aws_bootstrap_aws_keypair_name: keypair-name-2015
