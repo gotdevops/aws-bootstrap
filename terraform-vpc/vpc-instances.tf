@@ -29,7 +29,7 @@ resource "aws_instance" "nat" {
 
 	# wait until jump server is up
 	provisioner "local-exec" {
-		command = "sleep ${var.sleep_seconds}" #it takes a little while for the server to come up
+		command = "sleep ${var.sleep_seconds * 2}" #it takes a while for the NAT server to come up
 	}
 
 	# create tunnel 
@@ -41,7 +41,6 @@ resource "aws_instance" "nat" {
 		type = "ssh"
 		private_key = "${var.aws_private_key}"
 		user = "ec2-user"
-		host = "${self.private_ip}"
 		bastion_user = "ec2-user"
 		bastion_host = "${aws_eip.jump.public_ip}"
 		agent = false
