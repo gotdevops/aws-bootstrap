@@ -7,5 +7,4 @@
 
   roles:
     - role: gotansible.aws-bootstrap
-      aws_bootstrap_terraform_file: vpc.tf
 
