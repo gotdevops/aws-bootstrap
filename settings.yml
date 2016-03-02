@@ -1,9 +1,6 @@
 
 aws_bootstrap_genesis_source: "git::ssh://git@github.com/gotdevops/aws-bootstrap//terraform-vpc?ref=master"
 
-# Which Account 
-aws_bootstrap_aws_account_id: "AWS_ACCOUNT_ID"
-
 # VPC
 aws_bootstrap_vpc_name: my-vpc-name
 aws_bootstrap_vpc_cidr_block: "10.0.0.0/16"

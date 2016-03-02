@@ -2,7 +2,6 @@
 - hosts: all
   gather_facts: no
   vars_files:
-    - credentials.yml
     - ../settings.yml
 
   roles:
