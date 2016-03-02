@@ -3,10 +3,6 @@
 # REQUIRED
 ############################
 
-variable "aws_access_key" {}
-variable "aws_secret_key" {}
-variable "aws_account_id" {}
-
 variable "aws_vpc_name" {}
 variable "aws_keypair_name" {}
 variable "aws_private_key" {}

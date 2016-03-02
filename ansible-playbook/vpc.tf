@@ -1,8 +1,4 @@
 
-variable "aws_access_key" {}
-variable "aws_secret_key" {}
-variable "aws_account_id" {}
-
 variable "aws_keypair_name" {}
 variable "aws_vpc_name" {}
 variable "aws_private_key" {}
@@ -16,10 +12,6 @@ variable "jump_access_cidr" {}
 
 module "genesis" {
 	source = "git::ssh://git@github.com/gotdevops/aws-bootstrap//terraform-vpc?ref=master"
-
-	aws_access_key = "${var.aws_access_key}"
-	aws_secret_key = "${var.aws_secret_key}"
-	aws_account_id = "${var.aws_account_id}"
 
 	aws_keypair_name = "${var.aws_keypair_name}"
 	aws_vpc_name = "${var.aws_vpc_name}"
