@@ -1,6 +1,22 @@
 #!/bin/sh
 
+echo "This script requires your AWS credentials to be setup in:  ~/.aws/credentials"
+echo "Typically this is done using the AWS CLI tool. You can see the documentation for this tool here:"
+echo "http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html"
+
+echo
+echo "Enter the AWS credentials profile name to use (default): "
+read profile
+echo
+
+if [ -z "${profile}" ]; then
+	profile="default"
+fi
+
+echo "Using the '$profile' AWS credentials profile."
+echo
+
 cd ./.bootstrap
 
-./bootstrap
+./bootstrap -p $profile
 
