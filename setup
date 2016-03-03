@@ -7,7 +7,7 @@ cd ansible-playbook
 #TODO: take aws profile as a paramter: aws_credentials_profile
 
 ansible-galaxy install -r requirements.yml --force
-ansible-playbook bootstrap.yml -i "localhost," -c local -e "aws_credentials_profile=default"
+ansible-playbook bootstrap.yml -i "localhost," -c local 
 
 
 
