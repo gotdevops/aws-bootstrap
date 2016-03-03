@@ -54,7 +54,7 @@ variable "nat_amis" {
 
 variable "jump_amis" {
 	default = {
-		us-west-2 = "ami-d13845e1"
+		us-west-2 = "ami-5189a661"
 	}
 }
 
