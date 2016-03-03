@@ -42,7 +42,7 @@ resource "aws_security_group" "ssh_base" {
 		from_port = -1
 		to_port = -1
 		protocol = "icmp"
-		cidr_blocks = ["${var.vpc_cidr_block}"]
+		cidr_blocks = ["${var.vpc_cidr_prefix}.0.0/16"]
 	}
 
 	egress {
@@ -97,7 +97,7 @@ resource "aws_security_group" "nat" {
 		from_port = 0
 		to_port = 0
 		protocol = "-1"
-		cidr_blocks = ["${var.vpc_cidr_block}"]
+		cidr_blocks = ["${var.vpc_cidr_prefix}.0.0/16"]
 	}
 
 	egress {

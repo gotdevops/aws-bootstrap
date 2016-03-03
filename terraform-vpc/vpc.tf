@@ -7,7 +7,7 @@ provider "aws" {
 }
 
 resource "aws_vpc" "main" {
-	cidr_block = "${var.vpc_cidr_block}"
+	cidr_block = "${vpc_cidr_prefix}.0.0/16"
 	enable_dns_support = true
 
 	tags {

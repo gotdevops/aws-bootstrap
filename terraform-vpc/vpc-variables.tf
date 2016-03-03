@@ -25,8 +25,8 @@ variable "vpc_zone_alt" {
 	default = "us-west-2b"
 }
 
-variable "vpc_cidr_block" {
-	default = "10.0.0.0/16"
+variable "vpc_cidr_prefix" {
+	default = "10.0"
 }
 
 variable "jump_access_cidr" {
@@ -74,7 +74,11 @@ output "vpc_id" {
 }
 
 output "vpc_cidr_block" {
-	value = "${var.vpc_cidr_block}"
+	value = "${var.vpc_cidr_prefix}.0.0/16"
+}
+
+output "vpc_cidr_prefix" {
+	value = "${var.vpc_cidr_prefix}"
 }
 
 output "vpc_zone" {

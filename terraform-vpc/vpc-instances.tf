@@ -5,7 +5,7 @@
 
 resource "aws_instance" "nat" {
 	instance_type = "m1.small"
-	private_ip = "10.0.0.250"
+	private_ip = "${vpc_cidr_prefix}.0.250"
 	source_dest_check = false				#important for nat
 	subnet_id = "${aws_subnet.dmz.id}"
 	vpc_security_group_ids = ["${aws_security_group.nat.id}"]
@@ -67,7 +67,7 @@ resource "aws_instance" "nat" {
 resource "aws_instance" "provision" {
 	depends_on = ["aws_route_table.nat", "aws_instance.nat"]
 	instance_type = "t2.small"
-	private_ip = "10.0.96.7"
+	private_ip = "${vpc_cidr_prefix}.96.7"
 	subnet_id = "${aws_subnet.provision.id}"
 	vpc_security_group_ids = ["${aws_security_group.ssh_base.id}", "${aws_security_group.provision.id}"]
 	ami = "${lookup(var.ubuntu_amis, var.aws_region)}"
@@ -132,7 +132,7 @@ resource "aws_instance" "provision" {
 resource "aws_instance" "jump" {
 	depends_on = ["aws_internet_gateway.main"]
 	instance_type = "t2.micro"
-	private_ip = "10.0.0.7"
+	private_ip = "${vpc_cidr_prefix}.0.7"
 	subnet_id = "${aws_subnet.dmz.id}"
 	vpc_security_group_ids = ["${aws_security_group.jump.id}"]
 	ami = "${lookup(var.jump_amis, var.aws_region)}"
