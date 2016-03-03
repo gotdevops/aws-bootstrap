@@ -1,4 +1,5 @@
 terraform.tfvars
+settings.yml
 **/roles/**
 **/.roles/**
 **/terraform.tfvars
