@@ -1,5 +1,5 @@
 
-aws_bootstrap_genesis_source: "git::ssh://git@github.com/gotdevops/aws-bootstrap//terraform-vpc?ref=master"
+aws_bootstrap_genesis_source: "git::ssh://git@github.com/gotdevops/terraform-aws-vpc?ref=master"
 
 # VPC
 aws_bootstrap_vpc_name: my-vpc-name
