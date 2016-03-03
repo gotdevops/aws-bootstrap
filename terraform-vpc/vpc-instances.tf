@@ -29,7 +29,7 @@ resource "aws_instance" "nat" {
 
 	# wait until jump server is up
 	provisioner "local-exec" {
-		command = "sleep ${var.sleep_seconds * 2}" #it takes a while for the NAT server to come up
+		command = "sleep ${var.sleep_seconds * 3}" #it takes a while for the NAT server to come up
 	}
 
 	# create tunnel 
