@@ -6,6 +6,10 @@ aws_bootstrap_vpc_name: my-vpc-name
 aws_bootstrap_vpc_cidr_block: "10.0.0.0/16"
 aws_bootstrap_jump_access_cidr: "65.200.54.234/32"
 
+# dev, qa, prod, general, etc.
+aws_bootstrap_site_environment: "qa"
+aws_bootstrap_terraform_vars: []
+
 # Region
 aws_bootstrap_aws_region: us-west-2
 aws_bootstrap_aws_zone: "{{ aws_bootstrap_aws_region }}a"
