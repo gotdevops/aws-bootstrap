@@ -1,4 +1,4 @@
-terraform.tfvars
+**/terraform.tfvars
 **/roles/**
 **/.roles/**
 **/terraform.tfvars
