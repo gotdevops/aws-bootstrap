@@ -8,7 +8,9 @@ aws_bootstrap_jump_access_cidr: "65.200.54.234/32"
 
 # dev, qa, prod, general, etc.
 aws_bootstrap_site_environment: "qa"
-aws_bootstrap_terraform_vars: []
+aws_bootstrap_terraform_vars:
+  myvarname: myvalue
+  myothervarname: myothervalue
 
 # Region
 aws_bootstrap_aws_region: us-west-2
