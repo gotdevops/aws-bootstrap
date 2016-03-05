@@ -37,5 +37,4 @@ $ ./run
 
 ```
 
-After running setup a "bootstrap" folder will be created in the root directory.
-
+** setup creates a hidden .generated folder in the root that contains the bootstrap scripts
