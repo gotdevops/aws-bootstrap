@@ -16,7 +16,7 @@ fi
 echo "Using the '$profile' AWS credentials profile."
 echo
 
-cd ../bootstrap
+cd ../.generated
 
 ./bootstrap -p $profile
 
