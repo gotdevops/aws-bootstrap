@@ -1,5 +1,15 @@
 # aws-bootstrap
 
+# New Bootstrap Repo
+
+To create a new bootstrap repo:
+* create git repo / folder
+* cd to_new_repo
+* run: git submodule add git@github.com:gotdevops/aws-bootstrap aws-bootstrap
+* follow the "How To" below
+
+# aws-bootstrap
+
 ## Credentials
 
 AWS CLI Profile for Credentials
@@ -15,8 +25,17 @@ So when you run the script below you can use and deploy the correct credentials.
 1. Setup Credentials using the AWS CLI Configure Command. See Credentials above.
 2. Ensure Ansible >= 2.0 is installed
 3. Ensure Terraform is installed
-4. Copy settings-example to settings.yml and then correctly set all variables in setup/settings.yml
-5. execute ./setup (this will create a hidden .bootstrap folder)
-6a. execute ./run
-6b. the script will ask you for the name of the credentials profile. if you just hit enter, it'll use the default profile that you setup in step 1. Otherwise, type in the named profile to use when it asks.
-7. ensure it's working and then go get a snack or coffee or something... it'll take a bit
+4. Copy aws-bootstrap/settings-example to ../settings.yml and then correctly set all variables 
+
+Then
+```
+$ cd aws-bootstrap
+$ ./setup 
+$ ./run
+> Which AWS Credentials Profile to use (default): [Enter]
+... off it goes
+
+```
+
+After running setup a "bootstrap" folder will be created in the root directory.
+
