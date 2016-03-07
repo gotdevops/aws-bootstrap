@@ -16,7 +16,18 @@ fi
 echo "Using the '$profile' AWS credentials profile."
 echo
 
+if [ ! -d "../vpc" ]; then
+  mkdir "../vpc"
+fi
+
 cd ../.generated
 
 ./bootstrap -p $profile
+
+echo "Copying terraform.tfvars to ./vpc/terraform.tfvars. You may need to confirm overwrite."
+cp terraform.tfvars ../vpc/terraform.tfvars
+
+echo "Copying vpc-genesis.tfvars to ./vpc/vpc-genesis.tfvars. You may need to confirm overwrite."
+cp vpc-genesis.tf ../vpc/vpc-genesis.tf
+
 
