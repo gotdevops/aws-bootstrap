@@ -6,6 +6,11 @@ aws_bootstrap_vpc_name: my-vpc-name
 aws_bootstrap_vpc_cidr_prefix: "10.0"
 aws_bootstrap_jump_access_cidr: "65.200.54.234/32"
 
+# DNS - for Jump Server
+
+aws_bootstrap_dns_jump_domain: "qa.mydomain.com"
+aws_bootstrap_dns_jump_zone_id: "1234566"
+
 # dev, qa, prod, general, etc.
 aws_bootstrap_site_environment: "qa"
 aws_bootstrap_terraform_vars:
