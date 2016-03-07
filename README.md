@@ -25,7 +25,7 @@ So when you run the script below you can use and deploy the correct credentials.
 1. Setup Credentials using the AWS CLI Configure Command. See Credentials above.
 2. Ensure Ansible >= 2.0 is installed
 3. Ensure Terraform is installed
-4. Copy aws-bootstrap/settings-example to ../settings.yml and then correctly set all variables 
+4. Copy aws-bootstrap/bootstrap-settings-example to ../bootstrap-settings.yml and then correctly set all variables 
 
 Then
 ```
