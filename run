@@ -27,6 +27,9 @@ cd ../.generated
 echo "Copying terraform.tfvars to ./vpc/terraform.tfvars "
 cp terraform.tfvars ../vpc/terraform.tfvars
 
+echo "Ensure root terraform.tfvars file exists "
+touch terraform.tfvars 
+
 echo "Copying vpc-genesis.tfvars to ./vpc/vpc-genesis.tfvars "
 cp vpc-genesis.tf ../vpc/vpc-genesis.tf
 
