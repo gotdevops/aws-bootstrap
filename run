@@ -36,9 +36,8 @@ cp vpc-genesis.tf ../vpc/vpc-genesis.tf
 echo "Copying terraform-remote-configure to ./vpc/terraform-remote-configure "
 cp terraform-remote-configure ../vpc/terraform-remote-configure
 
-echo "Copying terraform-remote-configure to ./vpc/terraform-remote-configure "
-cp -R ./commands ../
-
+echo "Copying terraform commands to root directory "
+cp -R ./commands/* ../
 
 echo
 echo "Done."
